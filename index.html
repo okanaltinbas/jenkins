@@ -45,9 +45,24 @@
 <body>
     <div class="content">
         <h1>Günlük Dini Bilgi</h1>
-        <p>“İyilikle kötülük bir olmaz. Sen kötülüğü en güzel bir şekilde sav. O zaman seninle arasında düşmanlık bulunan kimse, sanki candan bir dost olur.”</p>
-        <p><strong>Kaynak:</strong> Fussilet Suresi, 34. Ayet</p>
+        <p id="quote"></p>
+        <p id="source"></p>
         <footer>&copy; 2025 Dini Bilgiler Platformu</footer>
     </div>
+
+    <script>
+        const quotes = [
+            { text: '“İyilikle kötülük bir olmaz. Sen kötülüğü en güzel bir şekilde sav. O zaman seninle arasında düşmanlık bulunan kimse, sanki candan bir dost olur.”', source: 'Fussilet Suresi, 34. Ayet' },
+            { text: '“Allah sabredenlerle beraberdir.”', source: 'Bakara Suresi, 153. Ayet' },
+            { text: '“Her zorlukla beraber bir kolaylık vardır.”', source: 'İnşirah Suresi, 6. Ayet' },
+            { text: '“Kim Allah’a tevekkül ederse, O ona yeter.”', source: 'Talak Suresi, 3. Ayet' },
+            { text: '“Şüphesiz ki Allah, adaleti, iyiliği ve yakınlara yardım etmeyi emreder.”', source: 'Nahl Suresi, 90. Ayet' }
+        ];
+
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+        document.getElementById('quote').innerText = randomQuote.text;
+        document.getElementById('source').innerHTML = `<strong>Kaynak:</strong> ${randomQuote.source}`;
+    </script>
 </body>
 </html>
