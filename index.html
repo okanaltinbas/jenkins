@@ -3,115 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Game</title>
+    <title>Dini Bilgi</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            background-color: #000;
-            overflow: hidden;
+            background-color: #f4f4f4;
+            color: #333;
         }
 
-        canvas {
-            background-color: #111;
-            border: 2px solid #fff;
+        .content {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #008080;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
         }
     </style>
 </head>
 <body>
-    <canvas id="gameCanvas" width="400" height="400"></canvas>
-    <script>
-        const canvas = document.getElementById('gameCanvas');
-        const ctx = canvas.getContext('2d');
-
-        const player = {
-            x: 200,
-            y: 200,
-            size: 20,
-            color: 'lime',
-            dx: 0,
-            dy: 0
-        };
-
-        const food = {
-            x: Math.random() * (canvas.width - 20),
-            y: Math.random() * (canvas.height - 20),
-            size: 10,
-            color: 'red'
-        };
-
-        let score = 0;
-
-        function drawPlayer() {
-            ctx.fillStyle = player.color;
-            ctx.fillRect(player.x, player.y, player.size, player.size);
-        }
-
-        function drawFood() {
-            ctx.fillStyle = food.color;
-            ctx.fillRect(food.x, food.y, food.size, food.size);
-        }
-
-        function drawScore() {
-            ctx.fillStyle = 'white';
-            ctx.font = '20px Arial';
-            ctx.fillText(`Score: ${score}`, 10, 20);
-        }
-
-        function update() {
-            player.x += player.dx;
-            player.y += player.dy;
-
-            if (player.x < 0) player.x = 0;
-            if (player.y < 0) player.y = 0;
-            if (player.x + player.size > canvas.width) player.x = canvas.width - player.size;
-            if (player.y + player.size > canvas.height) player.y = canvas.height - player.size;
-
-            if (
-                player.x < food.x + food.size &&
-                player.x + player.size > food.x &&
-                player.y < food.y + food.size &&
-                player.y + player.size > food.y
-            ) {
-                score++;
-                food.x = Math.random() * (canvas.width - food.size);
-                food.y = Math.random() * (canvas.height - food.size);
-            }
-        }
-
-        function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            drawPlayer();
-            drawFood();
-            drawScore();
-        }
-
-        function loop() {
-            update();
-            draw();
-            requestAnimationFrame(loop);
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowUp') {
-                player.dx = 0;
-                player.dy = -2;
-            } else if (e.key === 'ArrowDown') {
-                player.dx = 0;
-                player.dy = 2;
-            } else if (e.key === 'ArrowLeft') {
-                player.dx = -2;
-                player.dy = 0;
-            } else if (e.key === 'ArrowRight') {
-                player.dx = 2;
-                player.dy = 0;
-            }
-        });
-
-        loop();
-    </script>
+    <div class="content">
+        <h1>Günlük Dini Bilgi</h1>
+        <p>“İyilikle kötülük bir olmaz. Sen kötülüğü en güzel bir şekilde sav. O zaman seninle arasında düşmanlık bulunan kimse, sanki candan bir dost olur.”</p>
+        <p><strong>Kaynak:</strong> Fussilet Suresi, 34. Ayet</p>
+        <footer>&copy; 2025 Dini Bilgiler Platformu</footer>
+    </div>
 </body>
 </html>
