@@ -3,14 +3,14 @@ pipeline {
 
     environment {
         // Docker Hub repo adı
-        DOCKER_REPO = "egitimicerigim/blog"
+        DOCKER_REPO = "okanaltinbas/blog"
     }
 
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/egitimicerigim/jenkins.git'
+                    url: 'https://github.com/okanaltinbas/jenkins.git'
             }
         }
 
